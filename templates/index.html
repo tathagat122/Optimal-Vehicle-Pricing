@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Prediction Engine</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> 
+  </head>
+  <body style="background: #000;">
+    <div class="login">
+	    <h1>Optimal Price Prediction for Vehicles</h1>
+        <!-- Main Input For Receiving Query to our ML -->
+      <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="symboling" placeholder="symboling" required="required" />
+        <input type="text" name="wheelbase" placeholder="wheelbase" required="required" />
+        <input type="text" name="carlength" placeholder="carlength" required="required" />
+        <input type="text" name="carwidth" placeholder="carwidth" required="required" />
+        <input type="text" name="carheight" placeholder="carheight" required="required" />
+        <input type="text" name="curbweight" placeholder="curbweight" required="required" />
+        <input type="text" name="enginesize" placeholder="enginesize" required="required" />
+        <input type="text" name="boreratio" placeholder="boreratio" required="required" />
+        <input type="text" name="stroke" placeholder="stroke" required="required" />
+        <input type="text" name="compressionratio" placeholder="compressionratio" required="required" />
+        <input type="text" name="horsepower" placeholder="horsepower" required="required" />
+        <input type="text" name="peakrpm" placeholder="peakrpm" required="required" />
+        <input type="text" name="citympg" placeholder="citympg" required="required" />
+        <input type="text" name="highwaympg" placeholder="highwaympg" required="required" />
+        <input type="text" name="fueltype" placeholder="fueltype" required="required" />
+        <input type="text" name="aspiration" placeholder="aspiration" required="required" />
+        <input type="text" name="doornumber" placeholder="doornumber" required="required" />
+        <input type="text" name="carbody" placeholder="carbody" required="required" />
+        <input type="text" name="drivewheel" placeholder="drivewheel" required="required" />
+        <input type="text" name="enginelocation" placeholder="enginelocation" required="required" />
+        <input type="text" name="enginetype" placeholder="enginetype" required="required" />
+        <input type="text" name="cylindernumber" placeholder="cylindernumber" required="required" />
+        <input type="text" name="fuelsystem" placeholder="fuelsystem" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+      </form><br><br>
+      {{ prediction_text }}
+   </div>
+ </body>
+</html>
